@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/http-vue-loader"></script>
+
+</head>
+<body>
+  <div id="app">
+    <base-button></base-button>
+    <x-base-button></x-base-button>
+    <single-base-button></single-base-button>
+    <component-part></component-part>
+  </div>
+  <script type="text/x-template" id="x-template-button">
+    <button>x-template</button>
+  </script>
+  <script>
+
+    // 1.template字符串
+    Vue.component("base-button", {
+      template: `
+        <button>template</button>
+      `
+    })
+    // 2
+    Vue.component("x-base-button", {
+      template: "#x-template-button"
+    })
+    
+    // 3()
+    Vue.component("single-base-button", httpVueLoader("SingleBaseButton.vue"))
+
+    // 局部注册
+    const ComponentPart = {
+      template: `<button>局部注册</button>`
+    }
+    
+    const vm = new Vue({
+      el: "#app",
+      components: {
+        ComponentPart: ComponentPart
+      }
+    })
+    
+    
+  </script>
+  
+</body>
+</html>
