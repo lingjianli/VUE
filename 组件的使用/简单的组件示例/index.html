@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>组件的使用</title>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://unpkg.com/http-vue-loader"></script>
-
 </head>
 <body>
   <div id="app">
@@ -32,7 +31,7 @@
     })
     
     // 3()
-    Vue.component("single-base-button", httpVueLoader("SingleBaseButton.vue"))
+    Vue.component("single-base-button", httpVueLoader("./components/SingleBaseButton.vue"))
 
     // 局部注册
     const ComponentPart = {
